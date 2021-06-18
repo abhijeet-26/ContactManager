@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thyemeleaf.org" th:replace="base::layout(~{::section})">
+<head>
+	<meta charset="UTF-8" />
+	<title>Home page</title>
+</head>
+<body>
+	<section>
+		 <div id="login">
+       
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-10">
+                    <div id="login-box" class="col-md-12">
+                    	
+                    	
+                    	<div th:if="${session.message}" class="container">
+						<div  class="alert alert-danger my-2 text-center" role="alert">
+						 		<span th:text="${session.message}"></span>
+						 		
+							</div>
+							
+							<th:block th:text="${#session.removeAttribute('message')}"></th:block>
+						
+						</div>
+                    
+                        <h3 class="text-center m-3">Verify OTP</h3>
+                        
+                       	<div class="alert alert-success" role="alert">
+							OTP generated successfully to your registered email
+						</div>
+						                        
+                        <form th:action="@{/varify_otp}" method="post">
+                        	<div class="form-group">
+                        	
+                        		<input name="otp" required type="number" placeholder="Enter OTP here" class="form-control" />
+                        		
+                        		<div class="container text-center mt-3">
+                        		
+                        		<button class="btn btn-success">Verify</button>
+                        		</div>
+                        	
+                        	</div>
+                        
+                        </form>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+		
+	</section>
+</body>
+</html>

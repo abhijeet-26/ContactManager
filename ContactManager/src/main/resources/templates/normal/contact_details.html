@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thyemeleaf.org" th:replace="normal/base::layout(~{::section})">
+<head>
+	<meta charset="UTF-8" />
+	<title>Home page</title>
+</head>
+<body>
+	<section>
+		<div class="card mr-3 ml-3 mt-2" th:if="${contact}">
+			<div class="card-body" >
+				<div class="container text-center">
+					<img class="my_profile_picture" style="height: 200px; width: 200px;" th:src="@{'/image/'+${contact.image}}" alt="profile Image" />
+					
+					<h3 class="mt-2"><span th:text="${contact.name}"></span> (<span th:text="${contact.secondName}"></span>)</h3>
+					
+					<table class="table table-dark mt-3">
+					  <thead>
+					    <tr>
+					      <th scope="col">#ID</th>
+					      <th scope="col">Contact <span th:text="${contact.cid}"></span></th>
+					    </tr>
+					  </thead>
+					  <tbody>
+					    <tr>
+					      <th scope="row">Email</th>
+					      <td><span th:text="${contact.email}"></span></td>
+					    </tr>
+					    <tr>
+					      <th scope="row">Phone</th>
+					      <td><span th:text="${contact.phone}"></span></td>
+					    </tr>
+					    <tr>
+					      <th scope="row">Work</th>
+					      <td><span th:text="${contact.work}"></span></td>
+					    </tr>
+					  </tbody>
+					</table>
+					
+					<div class="description mt-2">
+					
+						<th:block th:utext="${contact.description}"></th:block>
+					</div>
+					
+					<div class="container mt-3" style="display: flex; justify-content: space-between;">
+					
+						<button th:onclick="|deleteContact(${contact.cid})|" class="glow-on-hover1 mr-2">Delete</button>
+				      	
+						<form method="post" th:action="@{'/user/update_contact/'+${contact.cid}}">
+				      		<button type="submit" class="glow-on-hover1">Update</button>
+				      	</form>
+					</div>
+				
+				</div>
+			
+			</div>
+			
+			
+		
+		</div>
+		<h1 th:unless="${contact}">You don't have permision to view this contact</h1>
+  	
+	</section>
+</body>
+</html> 
+
+

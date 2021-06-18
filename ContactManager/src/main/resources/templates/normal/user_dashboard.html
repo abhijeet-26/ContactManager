@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thyemeleaf.org" th:replace="normal/base::layout(~{::section})">
+<head>
+	<meta charset="UTF-8" />
+	<title>Home page</title>
+</head>
+<body>
+	<section>
+		<div class="container">
+			<div class="card">
+				<div class="card-body">
+				
+					<div class="container text-center">
+						<img class="my_profile_picture mt-4" style="width: 200px; height: 200px;" th:src="@{/image/us.png}" alt="" />
+					</div>
+					
+					<h1 class="text-center mt-4 text-secondary font-italic" style="font-weight: normal;">
+						Start Adding Your Contact
+					</h1>
+					
+					<div class="container text-center mt-4">
+						<button onclick="window.location.href='/user/add_contact'" class="glow-on-hover1 mt-4">Add Contact</button>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+  	
+	</section>
+</body>
+</html> 
+
+

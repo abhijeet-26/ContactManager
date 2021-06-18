@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thyemeleaf.org" th:replace="normal/base::layout(~{::section})">
+<head>
+	<meta charset="UTF-8" />
+	<title>Home page</title>
+</head>
+<body>
+	<section>
+	
+	<div class="col-md-12">
+		<div class="card mt-3">
+			<div class="card-body">
+			
+			<h3 class="mb-3">Change Password</h3>
+			
+			<form th:action="@{/user/change_password}" method="post">
+			<!-- Old Password Field -->
+				<div class="form-group">
+					<input required name="oldPassWord" type="password" class="form-control" placeholder="Enter old password"></input>
+				</div>
+				
+				
+			<!-- New Password Field -->
+				<div class="form-group">
+					<input required name="newPassWord" type="password" class="form-control" placeholder="Enter new password"></input>
+				</div>
+				
+			<div class="container text-center">
+					
+				<button class="glow-on-hover1 mr-2" style="font-family: sans-serif;">Submit</button>
+			      	
+					
+			</div>
+			
+			
+			</form>
+			
+			
+			
+			</div>
+		</div>
+	</div>
+  	
+	</section>
+</body>
+</html> 
+
+

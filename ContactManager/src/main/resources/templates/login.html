@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thyemeleaf.org" th:replace="base::layout(~{::section})">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>Home page</title>
+	<link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css'>
+	<script src='https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js'></script>
+	
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+</head>
+<body>
+	<section>
+	<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+               <form id="login-form" class="box"  th:action="@{/dologin}" method="post">
+                    <h1 style="letter-spacing: 4px;">Login</h1>
+                    
+            
+                    
+                  <div th:if="${param.error}" class="alert alert-danger" role="alert">
+					 	Invalid Username and Password
+					  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					    <span aria-hidden="true">&times;</span>
+					  </button>
+				</div>
+				
+				
+                  <div th:if="${param.change}" class="alert alert-success" role="alert">
+					 	PassWord Changed successfully
+					  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					    <span aria-hidden="true">&times;</span>
+					  </button>
+				</div>
+                    
+                 
+                    
+                    
+                    <div th:if="${param.logout}" class="alert alert-success" role="alert">
+					 	You have been logged out
+					  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					    <span aria-hidden="true">&times;</span>
+					  </button>
+					</div>
+					
+                    
+                    <p class="text-muted"> Please enter your email and password!</p> <input required type="email" name="username" placeholder="Email"> <input required type="password" name="password" placeholder="Password"> <a class="forgot text-muted" th:href=@{/forgot}>Forgot password?</a> <input type="submit"  value="Login" >
+                    <p class="text-muted"><small>Do not have an account?</small></p>  <a class="text-darkyellow" href="/signup"><small>Sign Up</small></a>
+                      
+                   <div class="col-md-12">
+                        <ul class="social-network social-circle">
+                            <li><a href="#" class="icoFacebook" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="#" class="icoTwitter" title="Twitter"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#" class="icoGoogle" title="Google +"><i class="fab fa-google-plus"></i></a></li>
+                        </ul>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+		
+	</section>
+</body>
+</html>
